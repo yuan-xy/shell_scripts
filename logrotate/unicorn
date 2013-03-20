@@ -1,0 +1,11 @@
+/mnt/lianlian/log/*.log {
+  daily
+  missingok
+  rotate 7
+  compress
+  delaycompress
+  sharedscripts
+  postrotate
+    kill -s USR1 `cat /mnt/lianlian/log/unicorn.pid`
+  endscript
+}
