@@ -26,5 +26,6 @@ echo "alias gcam='git commit -a -m '" >> /etc/profile
 echo "alias erl='rlwrap -a  -A erl'" >> /etc/profile
 echo "alias dstat='dstat -cdlmnpsy'" >>  /etc/profile
 
-
+echo "export ipaddr0=`ifconfig eth0 |grep "inet addr"| cut -f 2 -d ":"|cut -f 1 -d " "`" >> /mnt/.bash_profile
+echo "export ipaddr1=`ifconfig eth1 |grep "inet addr"| cut -f 2 -d ":"|cut -f 1 -d " "`" >> /mnt/.bash_profile
 
