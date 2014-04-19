@@ -1,0 +1,14 @@
+#!/bin/bash
+count_sql="select count(*) from T_EXAMMODULE_EXAM where CER_NUMBER='$1';"
+#echo $count_sql
+count=$(echo $count_sql | mysql --database jianguan -uzjzj -p --silent) 
+#echo $count
+if  [ $count -gt 0 ]
+then
+ exit 0
+fi
+
+insert_sql="insert into T_EXAMMODULE_EXAM(NAME1,SEX,BIRTHDAY,WORK_CO,WORK_YEAR,DUTY,CER_NUMBER,ZJY_NUMBER,ZJS_NUMBER,ZKCER_NUMBER,ADDRESS,POST,XUELI,MAJOR,CITY,TEL,EMAIL,OTHER_CONTACT,EXAM_TYPE,EXEMPT_TYPE,ITEM_NAME,TRAIN_THEORY,TRAIN_THCHNOLOGY,CER_PHOTO,HEAD_PHOTO,XUELI_PHOTO,ZJY_PHOTO,ZJS_PHOTO,STATUS,YEAR,no3) select NAME1,SEX,BIRTHDAY,WORK_CO,WORK_YEAR,DUTY,CER_NUMBER,ZJY_NUMBER,ZJS_NUMBER,ZKCER_NUMBER,ADDRESS,POST,XUELI,MAJOR,CITY,TEL,EMAIL,OTHER_CONTACT,EXAM_TYPE,EXEMPT_TYPE,ITEM_NAME,TRAIN_THEORY,TRAIN_THCHNOLOGY,CER_PHOTO,HEAD_PHOTO,XUELI_PHOTO,ZJY_PHOTO,ZJS_PHOTO ,0 as STATUS, '2013' as YEAR, '历年考生' as no3 from T_EXAMMODULE_EXAM_2012 where CER_NUMBER='$1'; select id from T_EXAMMODULE_EXAM order by id desc limit 1"
+ret=$(echo $insert_sql | mysql --database jianguan -uzjzj -pzjzj --silent  --default-character-set=UTF8)
+exit $ret
+
