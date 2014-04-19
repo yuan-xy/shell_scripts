@@ -1,0 +1,15 @@
+
+server {
+	listen 80;
+	server_name demo.dface.cn;
+	root /mnt/share;
+	index index.html index.htm;
+
+	location / {
+		try_files $uri $uri/ /index.html;
+		autoindex on;
+		auth_basic "Restricted";
+		auth_basic_user_file /mnt/share.htpasswd;
+	}
+}
+
