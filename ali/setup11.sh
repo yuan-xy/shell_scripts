@@ -1,3 +1,4 @@
+apt-get -y install linux-headers-3.2.0-29-generic
  wget http://ddebs.ubuntu.com/pool/main/l/linux/linux-image-3.2.0-29-generic-dbgsym_3.2.0-29.46_amd64.ddeb
  dpkg -i linux-image-3.2.0-29-generic-dbgsym_3.2.0-29.46_amd64.ddeb
 
