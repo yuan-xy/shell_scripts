@@ -1,0 +1,6 @@
+# Object file
+.DS_Store
+netrc
+*.o
+*.class
+.classpath
