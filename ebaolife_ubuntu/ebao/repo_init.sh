@@ -1,1 +1,0 @@
-/Users/ylt/ebaolife/ebcore/scripts/linux_init/repo_init.sh
